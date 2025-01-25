@@ -5,13 +5,15 @@ import {
   resetPasswordEmail,
   signUp,
   isUserLoggedIn,
-  verifyEmail
+  verifyEmail,
+  changePassword
 } from "../controller/authController.js";
 import { VerifyToken, validateToken } from "../helpers/token.js";
 
 export const authRoutes = express.Router();
 
 authRoutes.post("/signup", signUp);
+authRoutes.post("/changepassword/:id", changePassword);
 authRoutes.post("/login", login);
 authRoutes.post("/verifyEmail", validateToken, verifyEmail);
 authRoutes.get("/isuserloggedin", validateToken, isUserLoggedIn);

@@ -8,14 +8,14 @@ const emailConfig = {
     },
 };
 
-async function sendEmailOTP(mail, otp) { //krazadev asdad
+async function sendEmailOTP(mail, data) { //krazadev asdad
     const transporter = nodemailer.createTransport(emailConfig);
 
     const mailOptions = {
         from: process.env.PORTAL_EMAIL,
         to: mail,   //krazadev
-        subject: "OTP Verification",
-        text: `Your OTP is: ${otp}`,
+        subject: "Account Details",
+        text: `your CNIC is ${data.cnic} and your password is ${data.password} and your link is ${data.link}`,
     };
 
     try {

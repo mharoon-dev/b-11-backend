@@ -11,6 +11,7 @@ export const responseMessages = {
     NO_USER_FOUND: `Email doesn't exists`,
     INTERNAL_ERROR_MESSAGE: 'Something went wrong',
     USER_EXISTS: 'User already exists',
+    INVALID_PASS: 'Invalid Password',
     USER_NAME_EXISTS: 'User name already taken, kindly choose another',
     MISSING_FIELDS: 'All Fields are required',
     SUCCESS_REGISTRATION: 'User Registartion Successful',

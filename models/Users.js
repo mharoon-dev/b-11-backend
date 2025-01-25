@@ -3,27 +3,11 @@ import mongoose from 'mongoose';
 
 const register = mongoose.Schema(
     {
-        firstName: {
+        cnic: {
             type: String,
-            required: [true, 'Please Add First Name'],
-            minlength: 3,
-            maxlength: 20,
+            required: [true, 'Please Add CNIC'],
+            unique: true,
             trim: true,
-        },
-        lastName: {
-            type: String,
-            required: [true, 'Please Add Last Name'],
-            minlength: 3,
-            maxlength: 20,
-            trim: true,
-        },
-        userName: {
-            type: String,
-            required: [true, 'Please Add User Name'],
-            minlength: 3,
-            maxlength: 20,
-            trim: true,
-
         },
         email: {
             type: String,
@@ -39,25 +23,14 @@ const register = mongoose.Schema(
             minlength: 8,
             trim: true,
         },
-        otp: {
-            type: String,
-        },
-        expiresIn: {
-            type: Date
-        },
-        isVerified: {
+        isPasswordChanged: {
             type: Boolean,
             default: false
         },
-        // PasswordResetToken: {
-        //     type: String,
-        //     required: [true, 'Please Add Password'],
-        //     minlength: 8,
-        //     trim: true,
-        // },
-        ExpiryPasswordResetToken: {
-            type: Date,
-        }
+        loanReqs: {
+            type: Array,
+            default: []
+        },
     },
     {
         timestamps: true,
