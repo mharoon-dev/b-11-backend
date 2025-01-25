@@ -240,6 +240,27 @@ export const login = async (req, res) => {
     }
 };
 
+
+export const isUserLoggedIn = async (req, res) => {
+    try {
+      const userData = req.user;
+      if (userData) {
+        console.log(userData, "====>> userData");
+        return res.status(200).json({
+          status: true,
+          message: "User is logged in",
+          data: userData,
+        });
+      } else {
+        console.log("User is not logged in");
+      }
+    } catch (error) {
+      return res
+        .status(500) //INTERNALERROR
+        .send(error.message);
+    }
+  };
+
 // @desc    forgotPasswordEmail
 // @route   GET api/auth/forgotPasswordEmail
 // @access  Public
