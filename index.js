@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { rateLimit } from 'express-rate-limit'
 import { connectDB } from "./config/default.js";
 import { authRoutes } from "./routes/auth.js";
+import { loanReqRoutes } from "./routes/loanReq.js";
 // import { jobAdRoutes } from "./routes/jobAd.js";
 // import './cronJob.js'
 
@@ -33,6 +34,7 @@ const limiter = rateLimit({
 app.use(limiter)
 
 app.use("/api/auth", authRoutes);
+app.use("/api/loanreq", loanReqRoutes);
 // app.use("/api/jobAd", jobAdRoutes);
 
 app.get("/", (request, response) => {
