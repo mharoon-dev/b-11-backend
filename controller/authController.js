@@ -102,7 +102,7 @@ const salt = genSaltSync(10); // Generate a salt of 10 bits
         const data = {
           cnic: savedUser.cnic,
           password: password, // Use the generated password
-          link: `http://localhost:5173/login`,
+          link: `https://b-11-frontend.vercel.app/login`,
         };
 
         const emailResponse = await sendEmailOTP(email, data);
