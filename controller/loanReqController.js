@@ -88,3 +88,27 @@ export const updateStatus = async (req, res) => {
         res.status(500).json({ status: 'error', message: responseMessages.ERROR_MESSAGES });
     }
 };
+
+export const getLoanRequests = async (req, res) => {
+    const { id } = req.query; // Check for query parameter 'id'
+
+    try {
+        let loanRequests;
+        if (id) {
+            // If 'id' is provided, find the loan request by user ID
+            loanRequests = await LoanReq.find({ userId: id });
+            if (loanRequests.length === 0) {
+                return res.status(404).json({ status: 'error', message: 'No loan requests found for this user' });
+            }
+        } else {
+            // If no 'id' is provided, fetch all loan requests
+            loanRequests = await LoanReq.find();
+        }
+
+        res.status(200).json({ status: 'success', data: loanRequests });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ status: 'error', message: responseMessages.ERROR_MESSAGES });
+    }
+};
+
