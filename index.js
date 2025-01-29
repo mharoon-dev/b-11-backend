@@ -13,9 +13,7 @@ const PORT = 5000;
 const app = express();
 
 dotenv.config();
-app.use(cors({
-    origin: '*'
-}));
+app.use(cors());
 // app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
